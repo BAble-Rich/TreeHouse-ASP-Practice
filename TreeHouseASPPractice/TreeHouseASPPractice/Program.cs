@@ -7,6 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
+// Will need to modify this some for project
 namespace TreeHouseASPPractice
 {
     public class Program

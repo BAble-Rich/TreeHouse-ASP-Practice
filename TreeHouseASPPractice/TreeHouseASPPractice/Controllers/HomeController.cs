@@ -13,13 +13,14 @@ namespace TreeHouseASPPractice.Controllers
     {
         public ActionResult Detail()
         {
-            if (DateTime.Today.DayOfWeek == DayOfWeek.Friday)
-            {
-                return Redirect("/");
-                //return new RedirectResult("/");
-            }
+            //if (DateTime.Today.DayOfWeek == DayOfWeek.Friday)
+            //{
+            //    return Redirect("/");
+            //    //return new RedirectResult("/");
+            //}
 
-            return Content("Hello From the tree house practice");
+            //return Content("Hello From the tree house practice");
+            return View();
         }
 
         private readonly ILogger<HomeController> _logger;

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using TreeHouseASPPractice.Models;
 
-namespace ComicBookGallery.Data
+namespace TreeHouseASPPractice.Data
 {
     public class ComicBookRepository
     {

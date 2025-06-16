@@ -6,14 +6,28 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using TreeHouseASPPractice.Models;
+using TreeHouseASPPractice.Data;
 
 namespace TreeHouseASPPractice.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Detail()
+        private ComicBookRepository _comicBookRepository = null;
+
+        public HomeController()
         {
-            var comicBook = new ComicBook()
+            _comicBookRepository = new ComicBookRepository();
+        }
+
+        public ActionResult Detail(int? id)
+        {
+            if (id == null)
+            {
+                return HttpNotFound();
+            }
+
+            var comicBook = _comicBookRepository.GetComicBook(id.Value);
+            /*
             {
                 SeriesTitle = "The Amazing Spider-Man",
                 IssueNumber = 700,
@@ -27,7 +41,7 @@ namespace TreeHouseASPPractice.Controllers
                     new Artist() { Name = "Chris Eliopoulos", Role = "Letters" },
                 }
             };
-
+            */
             //if (DateTime.Today.DayOfWeek == DayOfWeek.Friday)
             //{
             //    return Redirect("/");
@@ -51,6 +65,11 @@ namespace TreeHouseASPPractice.Controllers
             */
 
             return View(comicBook);
+        }
+
+        private ActionResult HttpNotFound()
+        {
+            throw new NotImplementedException();
         }
 
         private readonly ILogger<HomeController> _logger;

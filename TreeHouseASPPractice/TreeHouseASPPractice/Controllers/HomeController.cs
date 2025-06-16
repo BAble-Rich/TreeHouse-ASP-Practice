@@ -13,6 +13,21 @@ namespace TreeHouseASPPractice.Controllers
     {
         public ActionResult Detail()
         {
+            var comicBook = new ComicBook()
+            {
+                SeriesTitle = "The Amazing Spider-Man",
+                IssueNumber = 700,
+                DescriptionHtml = "<p>Final issue! Witness the final hours of Doctor Octopus' life and his one, last, great act of revenge! Even if Spider-Man survives... <strong>will Peter Parker?</strong></p>",
+                Artists = new Artist[]
+                {
+                    new Artist() { Name = "Dan Slott", Role = "Script" },
+                    new Artist() { Name = "Humberto Ramos", Role = "Pencils" },
+                    new Artist() { Name = "Victor Olazaba", Role = "Inks" },
+                    new Artist() { Name = "Edgar Delgado", Role = "Colors" },
+                    new Artist() { Name = "Chris Eliopoulos", Role = "Letters" },
+                }
+            };
+
             //if (DateTime.Today.DayOfWeek == DayOfWeek.Friday)
             //{
             //    return Redirect("/");
@@ -20,6 +35,8 @@ namespace TreeHouseASPPractice.Controllers
             //}
 
             //return Content("Hello From the tree house practice");
+
+            /*
             ViewBag.SeriesTitle = "The Amazing Spider-Man";
             ViewBag.IssueNumber = 700;
             ViewBag.Description = "<p>Final issue! Witness the final hours of Doctor Octopus' life and his one, last, great act of revenge! Even if Spider-Man survives... <strong>will Peter Parker?</strong></p>";
@@ -31,8 +48,9 @@ namespace TreeHouseASPPractice.Controllers
                 "Colors: Edgar Delgado",
                 "Letters: Chris Eliopoulos"
             };
+            */
 
-            return View();
+            return View(comicBook);
         }
 
         private readonly ILogger<HomeController> _logger;

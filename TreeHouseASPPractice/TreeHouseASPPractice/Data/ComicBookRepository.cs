@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using ComicBookGallery.Models;
+using TreeHouseASPPractice.Models;
 
 namespace ComicBookGallery.Data
 {

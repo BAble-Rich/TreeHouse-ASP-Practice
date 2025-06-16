@@ -1,7 +1,7 @@
 ﻿@model TreeHouseASPPractice.Models.ComicBook
 
 @{
-    ViewData["Title"] = "Home Page";
+    <!--ViewData["Title"] = "Home Page";-->
     <!-- this tells our page we won't be using layout types -->
     Layout = "~/Views/Home/Index.cshtml";
     ViewBag.Title = Model.DisplayText;
@@ -9,11 +9,49 @@
 
 <!DOCTYPE html>
 
+<!--
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
     <title></title>
 </head>
+-->
+
+<h2>@Model.DisplayText</h2>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="well">
+            <h5><label>Series Title:</label> @Model.SeriesTitle</h5>
+            <h5><label>Issue #:</label> @Model.IssueNumber</h5>
+            <h5><label>Favorite:</label> @(Model.Favorite ? "Yes" : "No")</h5>
+            @if (Model.Artists.Length > 0)
+            {
+                <h5>Artists:</h5>
+                <div>
+                    <ul>
+                        @foreach (var artist in Model.Artists)
+                        {
+                            <li>@artist.Role: @artist.Name</li>
+                        }
+                    </ul>
+                </div>
+            }
+        </div>
+        <h5>Description:</h5>
+        <div>@Html.Raw(Model.DescriptionHtml)</div>
+        <!-- Above does below, but better
+        <h5>Description</h5>
+        <p>Final issue! Witness the final hours of Doctor Octopus' life and his one, last, great act of revenge! Even if Spider-Man survives...<strong>will Peter Parker?</strong></p>
+    -->
+    </div>
+    <div class="col-md-6">
+        <img src="/Images/@Model.CoverImageFileName"
+             alt="@Model.DisplayText" class="img-responsive" />
+    </div>
+</div>
+
+<!--
 <body>
     <div>
         <h1>@Model.SeriesTitle</h1>
@@ -22,22 +60,10 @@
         <h5>Description:</h5>
         <div>@Html.Raw(Model.DescriptionHtml)</div>
 
-        @if (Model.Artists.Length > 0)
-        {
-            <h5>Artists:</h5>
-            <div>
-                <ul>
-                    @foreach (var artist in Model.Artists)
-                    {
-                        <li>@artist.Role: @artist.Name</li>
-                    }
-                </ul>
-            </div>
-        }
     </div>
 </body>
 </html>
-
+    -->
 <!--
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
